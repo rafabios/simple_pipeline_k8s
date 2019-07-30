@@ -1,0 +1,7 @@
+type: python
+runTests: true
+testCommand: pylint app/webserver.py
+deployUponTestSuccess: false
+deployToolImage: bash
+deployCommand: python app/webserver.py
+deployEnvironment: dev

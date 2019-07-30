@@ -1,31 +1,3 @@
-node {
- 	// Clean workspace before doing anything
-  
-    deleteDir()
-
-    try {
-        stage ('Clone') {
-        	checkout scm
-        }
-        stage ('Build') {
-        	sh "echo 'shell scripts to build project...'"
-        }
-        stage ('Tests') {
-	        parallel 'static': {
-	            sh "echo 'shell scripts to run static tests...'"
-	        },
-	        'unit': {
-	            sh "echo 'shell scripts to run unit tests...'"
-	        },
-	        'integration': {
-	            sh "echo 'shell scripts to run integration tests...'"
-	        }
-        }
-      	stage ('Deploy') {
-            sh "echo 'shell scripts to deploy to server...'"
-      	}
-    } catch (err) {
-        currentBuild.result = 'FAILED'
-        throw err
-    }
-}
+// Usar @Library somente se nao foi adicionado aos shareds Globais do Jenkins
+//@Library('jenkins-pipeline-library') _
+00-pipelineRun()
