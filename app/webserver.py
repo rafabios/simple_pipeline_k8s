@@ -1,4 +1,4 @@
-###########################################################################################################
+######################################################################
 # Simples Web Server em python!
 # Criado em 31/03/2019
 # Criado por: Rafael Souza
@@ -9,7 +9,7 @@
 # WEBSERVICE_NAME     (INFORMAR NOME DO WEB SERVER)
 # WEBSERVICE_VERSION  (INFORMAR A VERSAO)
 # 
-###########################################################################################################
+######################################################################
 
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 import os
@@ -17,15 +17,12 @@ import socket
 import time
 import sys
 
-
 PORT_NUMBER = int(os.getenv('WEBSERVICE_PORT'))
-
-
 WEBSERVICE_NAME = str(os.getenv('WEBSERVICE_NAME'))
-WEBSERVICE_VERSION =  str(os.getenv('WEBSERVICE_VERSION'))
-WEBSERVICE_BGCOLOR =  str(os.getenv('WEBSERVICE_BGCOLOR'))
+WEBSERVICE_VERSION = str(os.getenv('WEBSERVICE_VERSION'))
+WEBSERVICE_BGCOLOR = str(os.getenv('WEBSERVICE_BGCOLOR'))
 HOSTNAME = str(socket.gethostname())
-DATE     = str(time.ctime())
+DATE = str(time.ctime())
 
 MESSAGE = '''
 <html>
@@ -46,10 +43,7 @@ MESSAGE = '''
 <b>Data</b> : {4}
 </body>
 </html>
-'''.format(WEBSERVICE_BGCOLOR,WEBSERVICE_NAME, WEBSERVICE_VERSION , HOSTNAME, DATE  )
-
-
-
+'''.format(WEBSERVICE_BGCOLOR,WEBSERVICE_NAME,WEBSERVICE_VERSION,HOSTNAME,DATE)
 
 #This class will handles any incoming request from
 #the browser
@@ -67,8 +61,8 @@ class myHandler(BaseHTTPRequestHandler):
 try:
         #Create a web server and define the handler to manage the
         #incoming request
-        server = HTTPServer(('', PORT_NUMBER), myHandler)
-        print 'Iniciando o webserver na porta: ' , str(PORT_NUMBER)
+        server = HTTPServer(('',PORT_NUMBER),myHandler)
+        print 'Iniciando o webserver na porta: ',str(PORT_NUMBER)
 
         #Wait forever for incoming htto requests
         server.serve_forever()
