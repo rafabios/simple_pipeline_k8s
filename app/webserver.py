@@ -1,17 +1,19 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 ######################################################################
 # Simples Web Server em python!
 # Criado em 31/03/2019
 # Criado por: Rafael Souza
 #
 # Passar os seguintes dados como variavel de ambiente:
-# 
+#
 # WEBSERVICE_PORT     (INFORMAR PORTA TCP)
 # WEBSERVICE_NAME     (INFORMAR NOME DO WEB SERVER)
 # WEBSERVICE_VERSION  (INFORMAR A VERSAO)
-# 
+#
 ######################################################################
 
-from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
+from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import os
 import socket
 import time
@@ -24,7 +26,8 @@ WEBSERVICE_BGCOLOR = str(os.getenv('WEBSERVICE_BGCOLOR'))
 HOSTNAME = str(socket.gethostname())
 DATE = str(time.ctime())
 
-MESSAGE = '''
+MESSAGE = \
+    '''
 <html>
 <head><title>PYTHON WEB SERVER</title></head>
 <body bgcolor="{0}">
@@ -43,31 +46,40 @@ MESSAGE = '''
 <b>Data</b> : {4}
 </body>
 </html>
-'''.format(WEBSERVICE_BGCOLOR,WEBSERVICE_NAME,WEBSERVICE_VERSION,HOSTNAME,DATE)
+'''.format(WEBSERVICE_BGCOLOR,
+        WEBSERVICE_NAME, WEBSERVICE_VERSION, HOSTNAME, DATE)
 
-#This class will handles any incoming request from
-#the browser
+
+# This class will handles any incoming request from
+# the browser
+
 class myHandler(BaseHTTPRequestHandler):
 
-        #Handler for the GET requests
-        def do_GET(self):
-                self.send_response(200)
-                self.send_header('Content-type','text/html')
-                self.end_headers()
+        # Handler for the GET requests
+
+    def do_GET(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
+
                 # Send the html message
-                self.wfile.write(MESSAGE)
-                return
+
+        self.wfile.write(MESSAGE)
+        return
+
 
 try:
-        #Create a web server and define the handler to manage the
-        #incoming request
-        server = HTTPServer(('',PORT_NUMBER),myHandler)
-        print 'Iniciando o webserver na porta: ',str(PORT_NUMBER)
 
-        #Wait forever for incoming htto requests
-        server.serve_forever()
+        # Create a web server and define the handler to manage the
+        # incoming request
 
+    server = HTTPServer(('', PORT_NUMBER), myHandler)
+    print 'Iniciando o webserver na porta: ', str(PORT_NUMBER)
+
+        # Wait forever for incoming htto requests
+
+    server.serve_forever()
 except KeyboardInterrupt:
-        print '^C received, shutting down the web server'
-        server.socket.close()
-        
+
+    print '^C received, shutting down the web server'
+    server.socket.close()
