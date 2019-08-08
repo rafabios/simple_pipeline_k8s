@@ -17,7 +17,6 @@ from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 import os
 import socket
 import time
-import sys
 
 PORT_NUMBER = int(os.getenv('WEBSERVICE_PORT'))
 WEBSERVICE_NAME = str(os.getenv('WEBSERVICE_NAME'))
@@ -47,7 +46,10 @@ MESSAGE = \
 </body>
 </html>
 '''.format(WEBSERVICE_BGCOLOR,
-        WEBSERVICE_NAME, WEBSERVICE_VERSION, HOSTNAME, DATE)
+    WEBSERVICE_NAME, 
+    WEBSERVICE_VERSION, 
+    HOSTNAME, 
+    DATE)
 
 
 # This class will handles any incoming request from
