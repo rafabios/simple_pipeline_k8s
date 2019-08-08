@@ -46,10 +46,10 @@ MESSAGE = \
 </body>
 </html>
 '''.format(WEBSERVICE_BGCOLOR,
-          WEBSERVICE_NAME, 
-          WEBSERVICE_VERSION, 
-          HOSTNAME, 
-          DATE)
+           WEBSERVICE_NAME, 
+           WEBSERVICE_VERSION, 
+           HOSTNAME, 
+           DATE)
 
 
 # This class will handles any incoming request from
