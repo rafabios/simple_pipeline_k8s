@@ -1,2 +1,2 @@
-requests
-pylint
+requests==2.22.0
+pylint==2.3.1
