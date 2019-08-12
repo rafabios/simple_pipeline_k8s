@@ -1,6 +1,6 @@
 type: python
 runTests: true
-testCommand: pylint --exit-zero app/webserver.py 
+testCommand: python -m pylint --exit-zero app/webserver.py 
 deployUponTestSuccess: false
 deployToolImage: bash
 deployCommand: python2 app/webserver.py
