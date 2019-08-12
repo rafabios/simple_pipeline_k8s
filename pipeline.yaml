@@ -3,5 +3,5 @@ runTests: true
 testCommand: pylint --exit-zero app/webserver.py 
 deployUponTestSuccess: false
 deployToolImage: bash
-deployCommand: python app/webserver.py
+deployCommand: python2 app/webserver.py
 deployEnvironment: dev
