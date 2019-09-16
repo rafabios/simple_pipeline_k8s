@@ -5,3 +5,14 @@ deployUponTestSuccess: false
 deployToolImage: bash
 deployCommand: python2 app/webserver.py
 deployEnvironment: dev
+#
+KUBE_METADATA_TIER: dev
+KUBE_METADATA_RESOURCE_LEVEL: low
+KUBE_DNS_DOMAIN: apps.example.com.br
+KUBE_SECRET_DB_PASSWORD: False
+KUBE_API_PORT: 3344
+KUBE_CONTAINER_COMMAND: 'tail'
+KUBE_ENV_FILE_SECRETS_GENERIC_FILE_NAME: daltomate-api-env
+KUBE_IMAGE_NAME: NOME_DA_IMAGEM
+KUBE_HEALTHCHECK: True
+KUBE_HEALTHCHECK_PATH: /
