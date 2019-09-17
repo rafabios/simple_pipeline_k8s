@@ -6,6 +6,7 @@ deployToolImage: bash
 deployCommand: python2 app/webserver.py
 deployEnvironment: dev
 #
+JOB_NAME: simple_pipeline_k8s
 KUBE_METADATA_TIER: dev
 KUBE_METADATA_RESOURCE_LEVEL: low
 KUBE_DNS_DOMAIN: apps.example.com.br
