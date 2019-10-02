@@ -76,12 +76,12 @@ try:
         # incoming request
 
     server = HTTPServer(('', PORT_NUMBER), myHandler)
-    print 'Iniciando o webserver na porta: ', str(PORT_NUMBER)
+    print('Iniciando o webserver na porta: ', str(PORT_NUMBER))
 
         # Wait forever for incoming htto requests
 
     server.serve_forever()
 except KeyboardInterrupt:
 
-    print '^C received, shutting down the web server'
+    print('^C received, shutting down the web server')
     server.socket.close()
